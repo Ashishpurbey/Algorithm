@@ -1,0 +1,29 @@
+#Knapsack type problem
+   ->Knapsack
+   ->subset sum
+   ->subset count
+   ->equal sum partition
+   ->min subset difference
+   ->no. of subset with given difference
+   ->target sum
+
+#unbounded knapsack type of problem
+   ->coin change 1(no. of ways through which we can make the given change)
+   ->coin change 2(min no. of coins through which we can make the given change)
+   ->rod problem
+
+#longest common subsequence
+   ->longest common subsequence(lcs)
+   ->longest common substring
+   ->shortest common supersequence(scs)
+   ->print lcs
+   ->print scs
+   ->largest repeating subsequence
+   ->min no. of insertion and deletion to convert string a->b
+   ->subsequence pattern matching(one of the string is present in other or not)
+#palindrome   
+   ->largest palindromic subsequence
+   ->largest palindromic substring
+   ->min no. of insertion to make it string into palindrome
+   ->min no. of deletion to make it string into palindrome
+   ->min no. of insertion in starting of a string to make it a palindrome

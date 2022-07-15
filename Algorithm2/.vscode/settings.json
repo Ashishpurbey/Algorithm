@@ -1,0 +1,12 @@
+{
+  "files.associations": {
+    "html": "html",
+    "*.js": "javascriptreact",
+    "ostream": "cpp",
+    "iostream": "cpp",
+    "variant": "cpp",
+    "vector": "cpp",
+    "random": "cpp",
+    "type_traits": "cpp"
+  }
+}
