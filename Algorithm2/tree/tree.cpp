@@ -1,10 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
-
-
 struct TreeNode{
     int data;
     vector<TreeNode *>children;
@@ -24,7 +20,6 @@ TreeNode * takeInput(){
     for(int i=0;i<n;i++){
         TreeNode * child=takeInput();
         root->children.push_back(child);
-        
     }
     return root;
 }

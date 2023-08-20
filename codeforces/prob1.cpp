@@ -175,6 +175,7 @@ int lcm(int x, int y)
 {
     return ((x * y) / __gcd(x, y));
 }
+
 void printpermutaion(vector<int> &v, int index)
 {
     if (index == v.size() - 1)
@@ -189,59 +190,71 @@ void printpermutaion(vector<int> &v, int index)
 }
 
 
+
 void solve(){
-	ll n;
-    cin>>n;
-    vector<ll>v1(n),v2(n),v3(n);
+  ll n;
+  cin>>n;
+  vector<ll>v1(n),v2(n);
+  for(auto &it:v1)cin>>it;
+  for(auto &it:v2)cin>>it;
+  vector<ll>fire,snow;
+  ll ans=0;
+  for(int i=0;i<n;i++){
+    if(v1[i]==0)fire.push_back(v2[i]);
+    else snow.push_back(v2[i]);
+  }     
+  sort(fire.rbegin(),fire.rend());
+  sort(snow.rbegin(),snow.rend());
+  if(fire.size()==0 || snow.size()==0){
+      for(auto it:v2)ans+=it;
+      cout<<ans<<endl;
+      return;
+  }else{
+    if(snow.size()!=fire.size()){
+       if(snow.size()>fire.size()){
+        
+          int l=0,r=0;
+          ans+=snow[snow.size()-1];
+          snow.pop_back();
+          while(l<snow.size() && r<fire.size()){
+             ans+=(2*snow[l]);
+             ans+=(2*fire[r]);
+             l++;
+             r++;
+          }
+          while(l<snow.size()){
+            ans+=snow[l];
+            l++;
+          }
+          cout<<ans<<endl;
+          return;
+       }else{
+          int l=0,r=0;
+          ans+=fire[fire.size()-1];
+          fire.pop_back();
+          while(l<fire.size() && r<snow.size()){
+             ans+=(2*fire[l]);
+             ans+=(2*snow[r]);
+             l++;
+             r++;
+          }
+          while(l<fire.size()){
+            ans+=fire[l];
+            l++;
+          }
+          cout<<ans<<endl;
+       }
+    }else{
+       for(int i=0;i<n;i++)v2[i]+=v2[i];
+       sort(v2.begin(),v2.end());
+       v2[0]/=2;
+       for(auto it:v2)ans+=it;
+       cout<<ans<<endl;
+       return;
+    }
+  }
     
-    for(auto &it:v1)cin>>it;
-    for(auto &it:v2)cin>>it;
-    for(auto &it:v3)cin>>it;
-    if(n==1){
-        cout<<1<<endl;
-        return ;
-    }
-    vector<ll>visit(n+1,0);
-    vector<vector<ll>>adj(n+1);
-    for(int i=0;i<n;i++){
-        adj[v1[i]].push_back(v2[i]);
-        adj[v2[i]].push_back(v1[i]);
-    }
-    ll cnt=0;
-    visit[0]=1;
-    for(int i=0;i<n;i++){
-        if(visit[v3[i]]==0){
-            dfs(adj,v3[i],visit);
 
-        } 
-    }
-
-    for(int i=0;i<n;i++){
-        if(v1[i]==v2[i]){
-            visit[v1[i]]=1;
-        }
-    }
-
-
-
-
-    for(int i=1;i<=n;i++){
-        if(visit[i]==0){
-            dfs(adj,i,visit);
-            cnt++;
-        }
-    }
-    ll ans=power(2,cnt,mod)%mod;
-    cout<<ans<<endl;
-
-
-
-
-
-
-
-
-    return ;
 }
 
 
@@ -251,7 +264,7 @@ int main()
     InputOutput
 #endif
         // IOS
-        int t = 1;
+    int t = 1;
     cin >> t;
 
     while (t--)

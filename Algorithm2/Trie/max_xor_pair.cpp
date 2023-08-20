@@ -62,10 +62,5 @@ int main(){
         insert(arr[i],head);
     }
     cout<<findMaxXorPair(head,arr,6);
-
-
-
-
-
     return 0;
 }

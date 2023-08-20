@@ -30,6 +30,7 @@ int main(){
         for(auto it:adj[i]){
             ll x=findparent(i,parent);
             ll y=findparent(it,parent);
+            
             //rank compression
             if(x!=y){
                 if(rank[x]>rank[y]){

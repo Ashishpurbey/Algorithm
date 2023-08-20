@@ -50,11 +50,11 @@ int KMP_search(string s,string pattern){
                 i++;
             }
         }
-
     }
     if(j==pattern_length)return 1;
     else return 0;
 }
+
 int main(){
     string s="azadalokashish";
     string pattern="alok";
